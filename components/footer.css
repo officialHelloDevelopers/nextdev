@@ -1,0 +1,45 @@
+.bordertop{
+  width: auto;
+  height: 7px;
+  background-color: #a227cb;
+  border-radius: 10px 10px 0 0;
+}
+
+footer {
+  text-align: justify;
+  padding: 25px 20px;
+  background-color: #e6e6e6;
+  font-size: 14px;
+  color: #1a1a1a;
+}
+
+footer h2 {
+  color: #a227cb;
+}
+
+footer a {
+  display: block;
+  background-color: #a227cb;
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: #e6e6e6;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  transform: scale(1.05);
+  color: #e6e6e6;
+}
+
+footer strong{
+  color: #a227cb;
+}
+
+@media (max-width: 1200px) {
+  footer, .bordertop {
+    display: none;
+  }
+}

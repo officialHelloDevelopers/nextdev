@@ -1,0 +1,91 @@
+ul {
+  list-style: none;
+  padding: 5px;
+  border-radius: 10px;
+  margin: 0;
+}
+
+ul li {
+  display: inline-block;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+ul li a {
+  display: block;
+  text-align: left;
+  font-size: 20px;
+}
+
+ul li ul.dropdown li {
+  display: block;
+  margin-bottom: 10px;
+}
+
+ul li ul.dropdown {
+  width: 300px;
+  display: none;
+  position: absolute;
+  right: 0;
+  z-index: 999;
+  background-color: #bbdefd;
+  border: 1.5px solid #0077b6;
+  padding: 10px;
+  padding-bottom: 0px;
+  animation: toggle 0.3s forwards;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+ul li ul.dropdown::-webkit-scrollbar {
+  width: 12px;
+}
+ul li ul.dropdown::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+}
+ul li ul.dropdown::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 0 10px 10px 0;
+  width: 12px;
+}
+
+ul li ul.dropdown li a {
+  transition: all 0.3s ease;
+}
+
+ul li:hover ul.dropdown {
+  display: block;
+}
+
+ul li:hover .arrowsvg {
+  transform: rotate(0);
+}
+
+ul li:hover {
+  background-color: #d0e7f9;
+  border-radius: 20px;
+}
+
+ul.dropdown li a:hover {
+  background-color: #64b5f6;
+}
+
+.arrowsvg {
+  margin: 0;
+  padding: 0;
+  height: 15px;
+  transform: rotate(90deg);
+  transition: all 0.3s ease;
+}
+
+@keyframes toggle {
+  from {
+      clip-path: inset(0 0 100% 0)
+  }
+
+  to {
+      clip-path: inset(0 0 0 0)
+  }
+}
