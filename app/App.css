@@ -94,7 +94,7 @@ iframe {
 	animation-range: exit -48vh;
 }
 
-.nondesktop{
+.nondesktop {
 	display: none;
 }
 
@@ -122,46 +122,44 @@ iframe {
 }
 
 @media (max-width: 1200px) {
+
 	.maintitle,
 	.content {
 		display: none;
 	}
+
 	.nondesktop {
-		display: block;
+		display: flex;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		justify-content: center;
+		align-items: center;
+		color: #ffffff;
+		background-color: #111827;
+		height: 100vh;
 	}
-}
 
-.nondesktop {
-  display: flex;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-  background-color: #111827;
-  height: 100vh;
-}
+	.nondesktop .container {
+		text-align: center;
+	}
 
-.nondesktop .container {
-  text-align: center;
-}
+	.nondesktop h1 {
+		margin-bottom: 1.5rem;
+		font-weight: 700;
+		color: #EC4899;
+	}
 
-.nondesktop h1 {
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-  color: #EC4899;
-}
+	.nondesktop h2 {
+		margin-bottom: 1rem;
+		font-weight: 600;
+	}
 
-.nondesktop h2 {
-  margin-bottom: 1rem;
-  font-weight: 600;
-}
+	.nondesktop p {
+		margin-bottom: 1.5rem;
+		color: #9CA3AF;
+	}
 
-.nondesktop p {
-  margin-bottom: 1.5rem;
-  color: #9CA3AF;
-}
-
-.nondesktop a:hover{
-  background-color: #BE185D;
+	.nondesktop a:hover {
+		background-color: #BE185D;
+	}
 }
