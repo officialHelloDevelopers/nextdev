@@ -1,6 +1,6 @@
 import { MongoClient } from 'mongodb'
 
-const uri = 'mongodb+srv://hellodevsofficial:LlDJI3ZvLtUS6N1h@feedbacks.qp1oszn.mongodb.net/'
+const uri = 'mongodb+srv://hellodevsofficial:kbera321@feedbacks.qp1oszn.mongodb.net/'
 
 export async function POST(request) {
   try {
