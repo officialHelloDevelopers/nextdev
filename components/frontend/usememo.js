@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const UseMemo = ({ fun }) => {
   return (
@@ -74,4 +75,4 @@ const myNum = numbers.find(item=>item.isMyNum===true)`}/>
   )
 }
 
-export default UseMemo;
+export default memo(UseMemo);

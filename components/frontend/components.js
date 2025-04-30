@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const Components = ({ fun }) => {
   return (
@@ -42,4 +43,4 @@ export default navbar;`}/>
   )
 }
 
-export default Components;
+export default memo(Components);

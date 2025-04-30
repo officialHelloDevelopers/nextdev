@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const Routing = ({ fun }) => {
   return (
@@ -69,4 +70,4 @@ const Routing = ({ fun }) => {
   )
 }
 
-export default Routing;
+export default memo(Routing);

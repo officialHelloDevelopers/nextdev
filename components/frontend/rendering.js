@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const Rendering = ({ fun }) => {
   return (
@@ -81,4 +82,4 @@ const Rendering = ({ fun }) => {
   )
 }
 
-export default Rendering;
+export default memo(Rendering);

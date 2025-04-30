@@ -1,7 +1,7 @@
 'use client'
 
-import React from "react";
-import { useState, useEffect, useRef } from 'react';
+//imports
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import IntroReact from '@/components/frontend/introreact';
 import IntroMern from '@/components/frontend/intromern';
@@ -21,17 +21,20 @@ import UseMemo from '@/components/frontend/usememo';
 import Footer from '@/components/footer';
 import UseCallBack from "@/components/frontend/usecallback";
 import FormCreation from "@/components/frontend/formcreation";
+import Link from "next/link";
 
+//started app
 function App() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState(''); //search term here
   const contentRef = useRef(null); // Ref to the content div
+  const [menuOpen, setMenuOpen] = useState(false); //menu open or not here
 
   // Function to handle input change
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  // Function to highlight text
+  // highlight the text equal to searchTerm
   const highlightText = (text) => {
     if (!searchTerm) return text; // Return original text if no search term
 
@@ -70,10 +73,23 @@ function App() {
     }
   }, [searchTerm]);
 
+  // Lock scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+  }, [menuOpen]);
+
+  //toggle the menu
+  const toggleMenu = () => {
+    requestAnimationFrame(() => {
+      setMenuOpen(prev => !prev);
+    });
+  };
+
   return (
     <>
-      <NavBar searchTerm={searchTerm} handleSearchChange={handleSearchChange} />
+      <NavBar searchTerm={searchTerm} handleSearchChange={handleSearchChange} toggleMenu={toggleMenu} menuOpen={menuOpen} />
 
+      {/* Desktop */}
       <div className="maintitle">
         <div className="head1">
           <h1 className="writer">🚀Master the Art of Web-Development</h1>
@@ -81,6 +97,41 @@ function App() {
         </div>
         <p>💡Scroll down and dive deep into modern web technologies, real-world projects, and expert insights. Begin your journy in <strong>Web-Development</strong>, unlock the secrets of full-stack mastery with hands-on learning!</p>
       </div>
+
+      {/* Mobile */}
+      <div className="mobiletitle">
+        <div>
+          <h1>🚀Master the Art of Web-Development</h1>
+          <h3>Build, Innovate & Elevate Your Skills to the Next Level!</h3>
+        </div>
+        <p>💡Scroll down and dive deep into modern web technologies, real-world projects, and expert insights. Begin your journy in <strong>Web-Development</strong>, unlock the secrets of full-stack mastery with hands-on learning!</p>
+      </div>
+
+      <div className={`menu ${menuOpen ? 'open' : ''}`}>
+        <ul>
+          <li>
+            <Link href="/">Frontend</Link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Link href="/backend">Backend</Link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Link href="/dbs">DataBase</Link>
+          </li>
+        </ul>
+        <ul className='special'>
+          <li>
+            <Link href="/review">Give Feedback</Link>
+          </li>
+        </ul>
+      </div>
+      {menuOpen && (
+        <div className="menubg" onClick={toggleMenu}></div>
+      )}
 
       <div className="content" ref={contentRef}>
         <IntroFront fun={highlightContent} />
@@ -116,14 +167,6 @@ function App() {
         <FormCreation fun={highlightContent} />
       </div>
       <Footer />
-
-      <div className="nondesktop">
-        <div className="container">
-          <h1>Sorry, we apolozise for the inconvenience...</h1>
-          <h2>Actually, the non-desktop version of the website is not created yet and is on comming soon.</h2>
-          <p>Try accessing this website on a desktop device like - laptop, PC etc...</p>
-        </div>
-      </div>
     </>
   );
 }

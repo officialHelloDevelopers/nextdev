@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const IntroReact = ({ fun }) => {
 	return (
@@ -26,4 +27,4 @@ const IntroReact = ({ fun }) => {
 	)
 }
 
-export default IntroReact;
+export default memo(IntroReact);

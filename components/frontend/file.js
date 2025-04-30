@@ -1,3 +1,4 @@
+import { memo } from "react";
 const FileSys = ({ fun }) => {
 	return (
 		<>
@@ -20,4 +21,4 @@ const FileSys = ({ fun }) => {
 	)
 }
 
-export default FileSys;
+export default memo(FileSys);

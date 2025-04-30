@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const Prop = ({ fun }) => {
   return (
@@ -47,4 +48,4 @@ export deafult App();`}/>
   )
 }
 
-export default Prop;
+export default memo(Prop);

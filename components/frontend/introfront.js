@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 const IntroFront = ({ fun }) => {
 	return (
 		<>
@@ -18,4 +20,4 @@ const IntroFront = ({ fun }) => {
 	)
 }
 
-export default IntroFront;
+export default memo(IntroFront);

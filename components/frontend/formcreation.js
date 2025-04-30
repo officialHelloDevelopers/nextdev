@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const FormCreation = ({ fun }) => {
   return (
@@ -57,4 +58,4 @@ const FormCreation = ({ fun }) => {
   )
 }
 
-export default FormCreation;
+export default memo(FormCreation);

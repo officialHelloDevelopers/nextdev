@@ -49,12 +49,6 @@ iframe {
 }
 
 .maintitle h1.writer {
-	display: inline-block;
-	white-space: nowrap;
-	overflow: hidden;
-	font-size: 64px;
-	margin: 0;
-	padding: 0;
 	z-index: 1;
 	animation:
 		typing 3s steps(22, end) forwards,
@@ -94,7 +88,15 @@ iframe {
 	animation-range: exit -48vh;
 }
 
-.nondesktop {
+.mobiletitle {
+	display: none;
+}
+
+.menubg {
+	display: none;
+}
+
+.menu {
 	display: none;
 }
 
@@ -123,43 +125,111 @@ iframe {
 
 @media (max-width: 1200px) {
 
-	.maintitle,
-	.content {
+	.maintitle {
 		display: none;
 	}
 
-	.nondesktop {
-		display: flex;
-		padding-left: 1rem;
-		padding-right: 1rem;
-		justify-content: center;
-		align-items: center;
-		color: #ffffff;
-		background-color: #111827;
+	.mobiletitle {
 		height: 100vh;
-	}
-
-	.nondesktop .container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 		text-align: center;
 	}
 
-	.nondesktop h1 {
-		margin-bottom: 1.5rem;
-		font-weight: 700;
-		color: #EC4899;
+	.mobiletitle.incomplete {
+		height: 80vh;
 	}
 
-	.nondesktop h2 {
-		margin-bottom: 1rem;
-		font-weight: 600;
+	.mobiletitle h1 {
+		font-size: 32px;
+		z-index: 1;
+		margin: 0;
+		padding: 0;
+		animation: fadeout;
+		animation-timeline: view();
+		animation-range: exit -30vh;
 	}
 
-	.nondesktop p {
-		margin-bottom: 1.5rem;
-		color: #9CA3AF;
+	.mobiletitle h3 {
+		font-size: 30px;
+		margin: 0;
+		padding: 0;
+		margin-top: -90px;
+		color: #1a1a1a1a;
+		animation: fadeout;
+		animation-timeline: view();
+		animation-range: exit -38vh;
 	}
 
-	.nondesktop a:hover {
-		background-color: #BE185D;
+	.mobiletitle p {
+		font-size: 16px;
+		margin-top: 40px;
+		padding: 0 20px 0 20px;
+		color: #4d4d4d;
+		animation: fadeout;
+		animation-timeline: view();
+		animation-range: exit -38vh;
+	}
+
+	iframe {
+		width: 250px;
+		height: 140.13px;
+	}
+
+	.content {
+		padding: 10px;
+		padding-top: 35px;
+	}
+
+	.menubg {
+		display: block;
+		height: 100vh;
+		width: 100%;
+		z-index: 2;
+		backdrop-filter: blur(5px);
+		position: fixed;
+		top: 0;
+		left: 0;
+	}
+
+	.menu {
+		display: block;
+		z-index: 3;
+		background-color: white;
+		height: calc(100vh - 40px);
+		width: 230px;
+		position: fixed;
+		top: 40px;
+		right: -230px;
+		transition: right 0.3s ease;
+		padding-top: 40px;
+	}
+
+	.menu.open {
+		right: 0;
+	}
+
+	.menu ul {
+		margin: 10px;
+		text-align: center;
+	}
+
+	.menu ul {
+		margin: 10px;
+		text-align: center;
+	}
+
+	.menu ul li {
+		background-color: #bbdefd;
+		border-radius: 20px;
+	}
+
+	.special{
+		position: absolute;
+		bottom: 100px;
+		right: 10%;
+		/* margin-top: 150% !important; */
 	}
 }

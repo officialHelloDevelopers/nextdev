@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const UseRef = ({ fun }) => {
   return (
@@ -53,4 +54,4 @@ const UseRef = ({ fun }) => {
   )
 }
 
-export default UseRef;
+export default memo(UseRef);

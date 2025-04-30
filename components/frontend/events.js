@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const Events = ({ fun }) => {
   return (
@@ -73,4 +74,4 @@ const Events = ({ fun }) => {
   )
 }
 
-export default Events;
+export default memo(Events);

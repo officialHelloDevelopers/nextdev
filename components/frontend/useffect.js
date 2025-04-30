@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const UseEffect = ({ fun }) => {
   return (
@@ -138,4 +139,4 @@ useEffect(() => {
   )
 }
 
-export default UseEffect;
+export default memo(UseEffect);

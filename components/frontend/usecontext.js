@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const UseContext = ({ fun }) => {
   return (
@@ -62,4 +63,4 @@ function Button(){
   )
 }
 
-export default UseContext;
+export default memo(UseContext);

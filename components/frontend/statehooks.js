@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const StateHooks = ({ fun }) => {
   return (
@@ -103,4 +104,4 @@ export default App;`}/>
   )
 }
 
-export default StateHooks;
+export default memo(StateHooks);

@@ -6,7 +6,7 @@ nav {
   border-bottom: 0.1px solid #c9c9c9;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 10;
 }
 
 nav .right {
@@ -14,6 +14,10 @@ nav .right {
   width: fit-content;
   gap: 0;
   place-items: center;
+}
+
+nav .right .hamburger {
+  display: none;
 }
 
 nav input,
@@ -38,6 +42,10 @@ nav input {
   color: #424242;
 }
 
+nav input.mobile {
+  display: none;
+}
+
 nav input::placeholder {
   font-size: 15px;
   color: #9e9e9e;
@@ -56,11 +64,75 @@ nav input:focus {
 }
 
 .center img {
-  height: 30px;
+  height: 35px;
+  width: auto;
 }
 
 @media (max-width: 1200px) {
-  nav {
+  nav .right ul {
     display: none;
   }
+
+  nav .right .hamburger {
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 6px 0;
+    margin-right: 20px;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 4px;
+    background-color: #333;
+    border-radius: 2px;
+  }
+
+  nav input {
+    display: none;
+  }
+
+  nav input.mobile {
+    display: block;
+    height: 35px;
+    width: auto;
+  }
+
+  nav input::placeholder {
+    font-size: 15px;
+  }
+
+  .center h1, .center img {
+    display: none;
+  }
+}
+
+.s1 {
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.s2 {
+  display: inline-block;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.s3 {
+  display: inline-block;
+  transition: transform 0.5s ease;
+}
+
+.rotated {
+  transform: rotate(34deg);
+}
+
+.rotated2 {
+  opacity: 0;
+}
+
+.rotated3 {
+  transform: rotate(-34deg);
 }

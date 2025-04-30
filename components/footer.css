@@ -37,9 +37,3 @@ footer a:hover {
 footer strong{
   color: #a227cb;
 }
-
-@media (max-width: 1200px) {
-  footer, .bordertop {
-    display: none;
-  }
-}

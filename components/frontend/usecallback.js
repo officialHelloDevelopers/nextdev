@@ -1,4 +1,5 @@
 import Code from "../code";
+import { memo } from "react";
 
 const UseCallBack = ({ fun }) => {
   return (
@@ -48,4 +49,4 @@ const UseCallBack = ({ fun }) => {
   )
 }
 
-export default UseCallBack;
+export default memo(UseCallBack);

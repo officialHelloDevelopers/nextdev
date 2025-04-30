@@ -4,10 +4,13 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import '@/app/App.css';
 import NavBar from '@/components/navbar';
+import Link from 'next/link';
+import Footer from '@/components/footer';
 
-function Backend() {
+function dbs() {
   const [searchTerm, setSearchTerm] = useState('');
   const contentRef = useRef(null); // Ref to the content div
+  const [menuOpen, setMenuOpen] = useState(false);
 
   // Function to handle input change
   const handleSearchChange = (event) => {
@@ -53,17 +56,66 @@ function Backend() {
     }
   }, [searchTerm]);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+  }, [menuOpen]);
+
+  const toggleMenu = () => {
+    requestAnimationFrame(() => {
+      setMenuOpen(prev => !prev);
+    });
+  };
+
   return (
     <>
-      <NavBar searchTerm={searchTerm} handleSearchChange={handleSearchChange} />
+      <NavBar searchTerm={searchTerm} handleSearchChange={handleSearchChange} toggleMenu={toggleMenu} menuOpen={menuOpen} />
 
-      <div className="maintitle">
-        <div className="head1">
-          <h1>Comming Soon!</h1>
-        </div>
+      {/* Mobile */}
+      <div className={`menu ${menuOpen ? 'open' : ''}`}>
+        <ul>
+          <li>
+            <Link href="/">Frontend</Link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Link href="/backend">Backend</Link>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <Link href="/dbs">DataBase</Link>
+          </li>
+        </ul>
+        <ul className='special'>
+          <li>
+            <Link href="/review">Give Feedback</Link>
+          </li>
+        </ul>
       </div>
+      {menuOpen && (
+        <div className="menubg" onClick={toggleMenu}></div>
+      )}
+
+      <div ref={contentRef}>
+        {highlightContent(
+          <>
+            <div className="maintitle">
+              <div className="head1">
+                <h1>Comming Soon!</h1>
+              </div>
+            </div>
+            <div className="mobiletitle incomplete">
+              <div className="head1">
+                <h1>Comming Soon!</h1>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+      <Footer />
     </>
   );
 }
 
-export default Backend;
+export default dbs;
