@@ -101,12 +101,12 @@ function Backend() {
           <>
             <div className="maintitle">
               <div className="head1">
-                <h1>Comming Soon!</h1>
+                <h1>Coming Soon!</h1>
               </div>
             </div>
             <div className="mobiletitle incomplete">
               <div className="head1">
-                <h1>Comming Soon!</h1>
+                <h1>Coming Soon!</h1>
               </div>
             </div>
           </>
